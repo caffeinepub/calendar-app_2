@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Modern mobile Calendar App with daily/weekly/monthly views, event management (add/edit/delete), reminder notifications, dark/light mode, and bottom navigation (Home, Calendar, Add Event, Settings). Built with React + TypeScript, Tailwind CSS (blue/white/purple theme), and Motoko backend on Internet Computer for event storage.",
+  "architectural_notes": [
+    "React with TypeScript for frontend",
+    "Tailwind CSS for styling with blue, white, and purple color scheme",
+    "Motoko backend on Internet Computer for event storage",
+    "Mobile-first responsive design (Android friendly)",
+    "Smooth animations and modern minimal UI design",
+    "Local storage with architecture to support future cloud sync"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Calendar app icon with modern blue and purple gradient design (app-icon.dim_512x512.png)\n- Home screen illustration showing calendar and events in minimalist style with blue and purple accents (home-illustration.dim_800x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-home-screen-component-that-displays-today-s-date-prominently-and-lists-all-events-scheduled-for-today-include-a-greeting-message-and-quick-stats-like-total-events-for-the-day",
+      "title": "Create a Home screen component that displays today's date prominently and lists all events scheduled for today. Include a greeting message and quick stats like total events for the day.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-monthly-calendar-view-component-that-displays-a-full-month-grid-with-day-numbers-highlight-dates-that-have-events-scheduled-with-visual-indicators-dots-or-badges-allow-users-to-navigate-between-months",
+      "title": "Build a monthly calendar view component that displays a full month grid with day numbers. Highlight dates that have events scheduled with visual indicators (dots or badges). Allow users to navigate between months.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-daily-and-weekly-calendar-view-components-daily-view-shows-all-events-for-a-selected-date-in-chronological-order-weekly-view-displays-a-7-day-grid-with-events-positioned-by-day-and-time",
+      "title": "Implement daily and weekly calendar view components. Daily view shows all events for a selected date in chronological order. Weekly view displays a 7-day grid with events positioned by day and time.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-add-event-form-accessible-from-a-prominent-button-and-the-bottom-navigation-form-must-include-fields-for-title-date-date-picker-time-time-picker-description-textarea-and-reminder-toggle-validate-all-required-fields-before-submission-upon-successful-submission-save-the-event-to-the-backend-and-navigate-back-to-the-previous-view",
+      "title": "Create an Add Event form accessible from a prominent button and the bottom navigation. Form must include fields for title, date (date picker), time (time picker), description (textarea), and reminder toggle. Validate all required fields before submission. Upon successful submission, save the event to the backend and navigate back to the previous view.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-event-details-page-that-displays-full-event-information-include-edit-and-delete-buttons-edit-button-opens-a-pre-filled-form-allowing-users-to-modify-any-event-field-delete-button-shows-a-confirmation-dialog-before-removing-the-event-from-the-backend",
+      "title": "Build an Event Details page that displays full event information. Include edit and delete buttons. Edit button opens a pre-filled form allowing users to modify any event field. Delete button shows a confirmation dialog before removing the event from the backend.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-reminder-notification-system-that-displays-browser-notifications-for-events-with-reminders-enabled-check-for-upcoming-events-within-15-minutes-and-show-notifications-with-event-title-and-time-request-notification-permissions-from-the-user-on-first-use",
+      "title": "Implement a reminder notification system that displays browser notifications for events with reminders enabled. Check for upcoming events (within 15 minutes) and show notifications with event title and time. Request notification permissions from the user on first use.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-dark-mode-and-light-mode-support-with-a-toggle-in-the-settings-screen-store-the-user-s-theme-preference-in-local-storage-and-apply-it-consistently-across-all-screens-use-appropriate-color-schemes-for-both-modes-with-blue-white-and-purple-accents",
+      "title": "Implement dark mode and light mode support with a toggle in the Settings screen. Store the user's theme preference in local storage and apply it consistently across all screens. Use appropriate color schemes for both modes with blue, white, and purple accents.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-bottom-navigation-bar-with-four-tabs-home-calendar-add-event-and-settings-each-tab-should-have-an-icon-and-label-active-tab-is-visually-highlighted-tapping-a-tab-navigates-to-the-corresponding-screen-with-smooth-transitions",
+      "title": "Create a bottom navigation bar with four tabs: Home, Calendar, Add Event, and Settings. Each tab should have an icon and label. Active tab is visually highlighted. Tapping a tab navigates to the corresponding screen with smooth transitions.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-settings-screen-with-options-for-theme-toggle-dark-light-mode-notification-preferences-and-a-placeholder-section-for-future-cloud-sync-settings-include-app-version-information-and-a-clean-organized-layout",
+      "title": "Create a Settings screen with options for theme toggle (dark/light mode), notification preferences, and a placeholder section for future cloud sync settings. Include app version information and a clean, organized layout.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-smooth-animations-throughout-the-app-including-page-transitions-modal-appearances-button-interactions-and-calendar-view-changes-use-tailwind-css-transition-utilities-and-ensure-animations-are-performant-on-mobile-devices",
+      "title": "Apply smooth animations throughout the app including page transitions, modal appearances, button interactions, and calendar view changes. Use Tailwind CSS transition utilities and ensure animations are performant on mobile devices.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-entire-application-is-mobile-responsive-with-a-design-optimized-for-android-devices-use-responsive-breakpoints-touch-friendly-tap-targets-minimum-44x44px-and-mobile-appropriate-font-sizes-test-all-interactions-for-mobile-usability",
+      "title": "Ensure the entire application is mobile responsive with a design optimized for Android devices. Use responsive breakpoints, touch-friendly tap targets (minimum 44x44px), and mobile-appropriate font sizes. Test all interactions for mobile usability.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-style-the-application-with-a-minimal-professional-design-using-tailwind-css-use-a-color-palette-of-blue-white-and-purple-throughout-the-app-apply-consistent-spacing-typography-and-component-styling-ensure-the-design-is-clean-modern-and-easy-to-use",
+      "title": "Style the application with a minimal, professional design using Tailwind CSS. Use a color palette of blue, white, and purple throughout the app. Apply consistent spacing, typography, and component styling. Ensure the design is clean, modern, and easy to use.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Daily, weekly, and monthly calendar views",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Event management: add, edit, delete events with title, date, time, description, and reminder",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Home screen showing today's date and events",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Monthly calendar view with highlighted event dates",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Event details page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Reminder notification system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Dark mode and light mode support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Bottom navigation with tabs: Home, Calendar, Add Event, Settings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Local data storage with future cloud sync support",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement a backend event storage system in Motoko with stable storage for events. Each event must include: id (unique identifier), title (text), date (ISO date string), time (time string), description (text), reminder (boolean), and createdAt timestamp. Provide methods to create, read, update, and delete events.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Calendar App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

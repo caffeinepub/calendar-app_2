@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with all routes (Home, Calendar, AddEvent, EventDetails, EventEdit, Settings), wraps the app with ThemeProvider, and initializes notifications.",
+  "frontend/src/contexts/ThemeContext.tsx": "Theme context provider that manages light/dark mode state, persists theme preference to localStorage, and applies theme class to document root.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including getAllEvents, getEvent, createEvent, updateEvent, and deleteEvent with automatic cache invalidation.",
+  "frontend/src/hooks/useNotifications.ts": "Custom hook that checks for upcoming events with reminders every minute and displays browser notifications 15 minutes before event time.",
+  "frontend/src/utils/notificationHelpers.ts": "Utility functions for managing browser notifications including permission checks, permission requests, and displaying notifications with event details.",
+  "frontend/src/components/Layout.tsx": "Main layout wrapper component that provides consistent structure with container, padding, and bottom navigation space for all pages.",
+  "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar with four tabs (Home, Calendar, Add, Settings) using icons and labels with active state highlighting.",
+  "frontend/src/pages/Home.tsx": "Home page displaying greeting, today's date, event count card, and list of today's events sorted by time with loading and empty states, using typed Link navigation.",
+  "frontend/src/pages/Calendar.tsx": "Calendar page with tabbed interface for switching between monthly, weekly, and daily views with shared selected date state.",
+  "frontend/src/components/MonthlyView.tsx": "Monthly calendar grid component showing all days of the month with event indicators, navigation controls, and selected date event list with properly typed arrays and Link navigation.",
+  "frontend/src/components/WeeklyView.tsx": "Weekly calendar view displaying 7 days with events for each day, week navigation controls, and today highlighting with properly typed Date arrays and Link navigation.",
+  "frontend/src/components/DailyView.tsx": "Daily calendar view showing all events for selected date in chronological order with day navigation, empty state handling, and typed Link navigation.",
+  "frontend/src/pages/AddEvent.tsx": "Add event page with form for creating new events, validation, backend integration, and success/error toast notifications.",
+  "frontend/src/components/EventForm.tsx": "Reusable event form component with fields for title, date, time, description, and reminder toggle with validation and error display.",
+  "frontend/src/pages/EventDetails.tsx": "Event details page displaying full event information with edit and delete buttons, confirmation dialog for deletion, and formatted date/time display.",
+  "frontend/src/pages/EventEdit.tsx": "Event edit page that loads existing event data and renders pre-filled EventForm for updating event details.",
+  "frontend/src/components/ConfirmDialog.tsx": "Reusable confirmation dialog component using AlertDialog for delete confirmations with customizable title, description, and action buttons.",
+  "frontend/src/pages/Settings.tsx": "Settings page with theme toggle, notification preferences, cloud sync placeholder (coming soon), and app version information with attribution footer.",
+  "frontend/src/index.css": "Global styles with OKLCH color system for blue/white/purple theme in light and dark modes, smooth animations, and mobile-optimized typography.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom blue/purple color palette, dark mode support, mobile-first breakpoints, and custom animations.",
+  "frontend/index.html": "HTML entry point with mobile-optimized meta tags, theme color, PWA capabilities, and app icon references."
+}

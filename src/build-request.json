@@ -1,0 +1,298 @@
+{
+  "kind": "build_request",
+  "title": "Build Modern Mobile Calendar App with Event Management",
+  "projectName": "Modern Calendar",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a backend event storage system in Motoko with stable storage for events. Each event must include: id (unique identifier), title (text), date (ISO date string), time (time string), description (text), reminder (boolean), and createdAt timestamp. Provide methods to create, read, update, and delete events.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add, edit, and delete events with title, date, time, description, and reminder notification",
+          "The app should store data locally"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Events are stored in stable memory and persist across canister upgrades",
+        "All CRUD operations (create, read, update, delete) work correctly",
+        "Each event includes all required fields: id, title, date, time, description, reminder flag, and createdAt timestamp",
+        "Backend returns events sorted by date"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a Home screen component that displays today's date prominently and lists all events scheduled for today. Include a greeting message and quick stats like total events for the day.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "A beautiful home screen showing today's date and events"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Today's date is displayed in a clear, readable format",
+        "All events for today are listed with their time and title",
+        "Screen updates in real-time when events are added or modified",
+        "Loading states are handled gracefully"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a monthly calendar view component that displays a full month grid with day numbers. Highlight dates that have events scheduled with visual indicators (dots or badges). Allow users to navigate between months.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Monthly calendar view with highlighted event dates",
+          "view dates in daily, weekly, and monthly formats"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calendar displays correct days for the current month",
+        "Dates with events are visually highlighted",
+        "Users can navigate to previous and next months",
+        "Clicking a date shows events for that day",
+        "Current day is clearly marked"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement daily and weekly calendar view components. Daily view shows all events for a selected date in chronological order. Weekly view displays a 7-day grid with events positioned by day and time.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "view dates in daily, weekly, and monthly formats"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Daily view lists all events for the selected date",
+        "Weekly view shows events across 7 days",
+        "Users can switch between daily, weekly, and monthly views",
+        "Time slots are clearly labeled in daily and weekly views"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create an Add Event form accessible from a prominent button and the bottom navigation. Form must include fields for title, date (date picker), time (time picker), description (textarea), and reminder toggle. Validate all required fields before submission. Upon successful submission, save the event to the backend and navigate back to the previous view.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Button to add new events",
+          "add, edit, and delete events with title, date, time, description, and reminder notification"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes all required fields with appropriate input types",
+        "Date and time pickers are mobile-friendly",
+        "Required fields show validation errors when empty",
+        "Events are successfully saved to the backend",
+        "User receives confirmation after successful event creation"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build an Event Details page that displays full event information. Include edit and delete buttons. Edit button opens a pre-filled form allowing users to modify any event field. Delete button shows a confirmation dialog before removing the event from the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Event details page",
+          "add, edit, and delete events"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Event details are displayed clearly with all fields",
+        "Edit functionality pre-fills the form with existing data",
+        "Changes are saved to the backend successfully",
+        "Delete shows confirmation dialog before removal",
+        "Deleted events are removed from all views"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement a reminder notification system that displays browser notifications for events with reminders enabled. Check for upcoming events (within 15 minutes) and show notifications with event title and time. Request notification permissions from the user on first use.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Reminder notification system",
+          "reminder notification"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Browser notification permission is requested appropriately",
+        "Notifications appear for events with reminders enabled",
+        "Notifications show event title and time",
+        "Notifications appear at an appropriate time before the event (e.g., 15 minutes)",
+        "System handles permission denial gracefully"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement dark mode and light mode support with a toggle in the Settings screen. Store the user's theme preference in local storage and apply it consistently across all screens. Use appropriate color schemes for both modes with blue, white, and purple accents.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Dark mode and light mode support",
+          "Use modern colors like blue, white, and purple"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Toggle switch in Settings changes between dark and light mode",
+        "Theme preference persists across sessions",
+        "All components adapt to the selected theme",
+        "Text remains readable in both modes",
+        "Blue, white, and purple colors are used appropriately in both themes"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create a bottom navigation bar with four tabs: Home, Calendar, Add Event, and Settings. Each tab should have an icon and label. Active tab is visually highlighted. Tapping a tab navigates to the corresponding screen with smooth transitions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include bottom navigation with tabs: Home, Calendar, Add Event, Settings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bottom navigation is fixed at the bottom of the screen",
+        "All four tabs are present with icons and labels",
+        "Active tab is visually distinct",
+        "Tapping tabs navigates to the correct screen",
+        "Navigation is smooth and responsive"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a Settings screen with options for theme toggle (dark/light mode), notification preferences, and a placeholder section for future cloud sync settings. Include app version information and a clean, organized layout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include bottom navigation with tabs: Home, Calendar, Add Event, Settings",
+          "allow future cloud sync support"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Settings screen is accessible from bottom navigation",
+        "Theme toggle is present and functional",
+        "Notification preferences can be managed",
+        "Cloud sync section is present but marked as coming soon",
+        "Layout is clean and organized"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Apply smooth animations throughout the app including page transitions, modal appearances, button interactions, and calendar view changes. Use Tailwind CSS transition utilities and ensure animations are performant on mobile devices.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Smooth animations and modern UI design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page transitions are smooth and visually appealing",
+        "Modals and dialogs animate in and out gracefully",
+        "Button interactions have visual feedback",
+        "Calendar view changes are animated smoothly",
+        "Animations perform well on mobile devices without lag"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Ensure the entire application is mobile responsive with a design optimized for Android devices. Use responsive breakpoints, touch-friendly tap targets (minimum 44x44px), and mobile-appropriate font sizes. Test all interactions for mobile usability.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Mobile responsive design (Android friendly)",
+          "Create a modern mobile Calendar App"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App layout adapts to different screen sizes",
+        "All interactive elements are easily tappable on mobile",
+        "Font sizes are readable on mobile devices",
+        "No horizontal scrolling is required",
+        "App functions correctly on Android browsers"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Style the application with a minimal, professional design using Tailwind CSS. Use a color palette of blue, white, and purple throughout the app. Apply consistent spacing, typography, and component styling. Ensure the design is clean, modern, and easy to use.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Use modern colors like blue, white, and purple",
+          "Make the design minimal, professional, and easy to use",
+          "modern UI design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Blue, white, and purple colors are used consistently",
+        "Design is minimal without unnecessary visual clutter",
+        "Typography is professional and readable",
+        "Spacing is consistent throughout the app",
+        "Overall aesthetic is modern and polished"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use React with TypeScript for frontend development",
+    "Use Tailwind CSS for styling",
+    "Use Motoko for backend development on Internet Computer",
+    "Support mobile devices with responsive design",
+    "Use blue, white, and purple as primary colors",
+    "Data must persist across canister upgrades using stable storage"
+  ],
+  "nonGoals": [
+    "Cloud sync implementation (placeholder only for future)",
+    "User authentication or multi-user support",
+    "Integration with external calendar services (Google Calendar, Outlook)",
+    "Recurring event support",
+    "Event sharing or collaboration features",
+    "Desktop-specific features or layouts"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Calendar app icon with modern blue and purple gradient design (app-icon.dim_512x512.png)",
+      "Home screen illustration showing calendar and events in minimalist style with blue and purple accents (home-illustration.dim_800x600.png)"
+    ],
+    "edits": []
+  }
+}

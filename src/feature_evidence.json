@@ -1,0 +1,235 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-home-screen-component-that-displays-today-s-date-prominently-and-lists-all-events-scheduled-for-today-include-a-greeting-message-and-quick-stats-like-total-events-for-the-day",
+      "featureTitle": "Create a Home screen component that displays today's date prominently and lists all events scheduled for today. Include a greeting message and quick stats like total events for the day.",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-monthly-calendar-view-component-that-displays-a-full-month-grid-with-day-numbers-highlight-dates-that-have-events-scheduled-with-visual-indicators-dots-or-badges-allow-users-to-navigate-between-months",
+      "featureTitle": "Build a monthly calendar view component that displays a full month grid with day numbers. Highlight dates that have events scheduled with visual indicators (dots or badges). Allow users to navigate between months.",
+      "files": [
+        "frontend/src/components/MonthlyView.tsx",
+        "frontend/src/pages/Calendar.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-daily-and-weekly-calendar-view-components-daily-view-shows-all-events-for-a-selected-date-in-chronological-order-weekly-view-displays-a-7-day-grid-with-events-positioned-by-day-and-time",
+      "featureTitle": "Implement daily and weekly calendar view components. Daily view shows all events for a selected date in chronological order. Weekly view displays a 7-day grid with events positioned by day and time.",
+      "files": [
+        "frontend/src/components/DailyView.tsx",
+        "frontend/src/components/WeeklyView.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-add-event-form-accessible-from-a-prominent-button-and-the-bottom-navigation-form-must-include-fields-for-title-date-date-picker-time-time-picker-description-textarea-and-reminder-toggle-validate-all-required-fields-before-submission-upon-successful-submission-save-the-event-to-the-backend-and-navigate-back-to-the-previous-view",
+      "featureTitle": "Create an Add Event form accessible from a prominent button and the bottom navigation. Form must include fields for title, date (date picker), time (time picker), description (textarea), and reminder toggle. Validate all required fields before submission. Upon successful submission, save the event to the backend and navigate back to the previous view.",
+      "files": [
+        "frontend/src/components/EventForm.tsx",
+        "frontend/src/pages/AddEvent.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-event-details-page-that-displays-full-event-information-include-edit-and-delete-buttons-edit-button-opens-a-pre-filled-form-allowing-users-to-modify-any-event-field-delete-button-shows-a-confirmation-dialog-before-removing-the-event-from-the-backend",
+      "featureTitle": "Build an Event Details page that displays full event information. Include edit and delete buttons. Edit button opens a pre-filled form allowing users to modify any event field. Delete button shows a confirmation dialog before removing the event from the backend.",
+      "files": [
+        "frontend/src/components/ConfirmDialog.tsx",
+        "frontend/src/pages/EventDetails.tsx",
+        "frontend/src/pages/EventEdit.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-reminder-notification-system-that-displays-browser-notifications-for-events-with-reminders-enabled-check-for-upcoming-events-within-15-minutes-and-show-notifications-with-event-title-and-time-request-notification-permissions-from-the-user-on-first-use",
+      "featureTitle": "Implement a reminder notification system that displays browser notifications for events with reminders enabled. Check for upcoming events (within 15 minutes) and show notifications with event title and time. Request notification permissions from the user on first use.",
+      "files": [
+        "frontend/src/hooks/useNotifications.ts",
+        "frontend/src/utils/notificationHelpers.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-dark-mode-and-light-mode-support-with-a-toggle-in-the-settings-screen-store-the-user-s-theme-preference-in-local-storage-and-apply-it-consistently-across-all-screens-use-appropriate-color-schemes-for-both-modes-with-blue-white-and-purple-accents",
+      "featureTitle": "Implement dark mode and light mode support with a toggle in the Settings screen. Store the user's theme preference in local storage and apply it consistently across all screens. Use appropriate color schemes for both modes with blue, white, and purple accents.",
+      "files": [
+        "frontend/src/contexts/ThemeContext.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-bottom-navigation-bar-with-four-tabs-home-calendar-add-event-and-settings-each-tab-should-have-an-icon-and-label-active-tab-is-visually-highlighted-tapping-a-tab-navigates-to-the-corresponding-screen-with-smooth-transitions",
+      "featureTitle": "Create a bottom navigation bar with four tabs: Home, Calendar, Add Event, and Settings. Each tab should have an icon and label. Active tab is visually highlighted. Tapping a tab navigates to the corresponding screen with smooth transitions.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNav.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-settings-screen-with-options-for-theme-toggle-dark-light-mode-notification-preferences-and-a-placeholder-section-for-future-cloud-sync-settings-include-app-version-information-and-a-clean-organized-layout",
+      "featureTitle": "Create a Settings screen with options for theme toggle (dark/light mode), notification preferences, and a placeholder section for future cloud sync settings. Include app version information and a clean, organized layout.",
+      "files": [
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-smooth-animations-throughout-the-app-including-page-transitions-modal-appearances-button-interactions-and-calendar-view-changes-use-tailwind-css-transition-utilities-and-ensure-animations-are-performant-on-mobile-devices",
+      "featureTitle": "Apply smooth animations throughout the app including page transitions, modal appearances, button interactions, and calendar view changes. Use Tailwind CSS transition utilities and ensure animations are performant on mobile devices.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-entire-application-is-mobile-responsive-with-a-design-optimized-for-android-devices-use-responsive-breakpoints-touch-friendly-tap-targets-minimum-44x44px-and-mobile-appropriate-font-sizes-test-all-interactions-for-mobile-usability",
+      "featureTitle": "Ensure the entire application is mobile responsive with a design optimized for Android devices. Use responsive breakpoints, touch-friendly tap targets (minimum 44x44px), and mobile-appropriate font sizes. Test all interactions for mobile usability.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-style-the-application-with-a-minimal-professional-design-using-tailwind-css-use-a-color-palette-of-blue-white-and-purple-throughout-the-app-apply-consistent-spacing-typography-and-component-styling-ensure-the-design-is-clean-modern-and-easy-to-use",
+      "featureTitle": "Style the application with a minimal, professional design using Tailwind CSS. Use a color palette of blue, white, and purple throughout the app. Apply consistent spacing, typography, and component styling. Ensure the design is clean, modern, and easy to use.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

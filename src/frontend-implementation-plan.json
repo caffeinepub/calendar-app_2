@@ -1,0 +1,301 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Modern Mobile Calendar App - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Create Home screen displaying today's date and events",
+      "acceptanceCriteria": [
+        "Today's date is displayed in a clear, readable format",
+        "All events for today are listed with their time and title",
+        "Screen updates in real-time when events are added or modified",
+        "Loading states are handled gracefully"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home screen component that displays today's date prominently with greeting message, lists all events for today sorted by time, shows quick stats (total events count), and handles loading/empty states. Fetch events from backend using getAllEvents() method and filter for today's date. Apply theme-aware styling with blue/purple accents."
+        },
+        {
+          "path": "frontend/src/hooks/useEvents.ts",
+          "operation": "create",
+          "description": "Create custom hook for event data management. Fetch all events from backend using getAllEvents(), provide real-time updates when events change, handle loading and error states, and expose methods for filtering events by date. This hook will be shared across Home, Calendar, and other components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build monthly calendar view with event indicators",
+      "acceptanceCriteria": [
+        "Calendar displays correct days for the current month",
+        "Dates with events are visually highlighted",
+        "Users can navigate to previous and next months",
+        "Clicking a date shows events for that day",
+        "Current day is clearly marked"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Calendar.tsx",
+          "operation": "create",
+          "description": "Create Calendar page component that renders monthly, weekly, and daily views with tab/toggle navigation. Include month navigation controls (previous/next buttons). Use useEvents hook to fetch event data and pass to child view components. Manage selected date state and view mode (monthly/weekly/daily)."
+        },
+        {
+          "path": "frontend/src/components/MonthlyView.tsx",
+          "operation": "create",
+          "description": "Create MonthlyView component displaying a full month grid (7 columns for weekdays, 4-6 rows for weeks). Show day numbers and highlight dates with events using dots or badges. Mark current day distinctly. Handle date clicks to trigger event list display or navigation. Calculate grid layout correctly accounting for month start day and number of days."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement daily and weekly calendar views",
+      "acceptanceCriteria": [
+        "Daily view lists all events for the selected date",
+        "Weekly view shows events across 7 days",
+        "Users can switch between daily, weekly, and monthly views",
+        "Time slots are clearly labeled in daily and weekly views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/DailyView.tsx",
+          "operation": "create",
+          "description": "Create DailyView component that displays all events for a selected date in chronological order. Show time slots (hourly or half-hourly) with events positioned accordingly. Include date selector and navigation to previous/next day. Handle empty state when no events exist for the day."
+        },
+        {
+          "path": "frontend/src/components/WeeklyView.tsx",
+          "operation": "create",
+          "description": "Create WeeklyView component displaying a 7-day grid with columns for each day and rows for time slots. Position events by day and time with appropriate height based on duration. Include week navigation controls. Show day names and dates in column headers. Handle overlapping events gracefully."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create Add Event form with validation and backend integration",
+      "acceptanceCriteria": [
+        "Form includes all required fields with appropriate input types",
+        "Date and time pickers are mobile-friendly",
+        "Required fields show validation errors when empty",
+        "Events are successfully saved to the backend",
+        "User receives confirmation after successful event creation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AddEvent.tsx",
+          "operation": "create",
+          "description": "Create AddEvent page component with form containing fields for title (text input), date (date picker), time (time picker), description (textarea), and reminder (toggle/checkbox). Implement validation for required fields (title, date, time). Generate unique ID for new event. Call backend createEvent() method with form data. Show success message and navigate back after successful creation. Handle errors gracefully. Use mobile-friendly date/time input types."
+        },
+        {
+          "path": "frontend/src/components/EventForm.tsx",
+          "operation": "create",
+          "description": "Create reusable EventForm component with controlled inputs for all event fields. Accept initial values prop for edit mode. Implement field validation logic with error message display. Expose onSubmit handler. Style with Tailwind CSS using blue/purple theme colors. Ensure form inputs are touch-friendly (minimum 44x44px tap targets)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build Event Details page with edit and delete functionality",
+      "acceptanceCriteria": [
+        "Event details are displayed clearly with all fields",
+        "Edit functionality pre-fills the form with existing data",
+        "Changes are saved to the backend successfully",
+        "Delete shows confirmation dialog before removal",
+        "Deleted events are removed from all views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/EventDetails.tsx",
+          "operation": "create",
+          "description": "Create EventDetails page that fetches and displays full event information using getEvent() backend method. Include Edit and Delete buttons. Edit button navigates to EventEdit page with event ID. Delete button shows confirmation dialog (using shadcn/ui AlertDialog or browser confirm) and calls backend deleteEvent() method. Navigate back to previous view after successful deletion. Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/pages/EventEdit.tsx",
+          "operation": "create",
+          "description": "Create EventEdit page that fetches existing event data using getEvent() and renders EventForm component pre-filled with event details. On form submission, call backend updateEvent() method with modified data. Show success confirmation and navigate back to EventDetails or previous view. Handle validation and error states."
+        },
+        {
+          "path": "frontend/src/components/ConfirmDialog.tsx",
+          "operation": "create",
+          "description": "Create reusable ConfirmDialog component for delete confirmations and other user confirmations. Accept props for title, message, confirm/cancel button labels, and onConfirm/onCancel callbacks. Use shadcn/ui AlertDialog or custom modal implementation. Style with theme-aware colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement browser notification system for event reminders",
+      "acceptanceCriteria": [
+        "Browser notification permission is requested appropriately",
+        "Notifications appear for events with reminders enabled",
+        "Notifications show event title and time",
+        "Notifications appear at an appropriate time before the event (e.g., 15 minutes)",
+        "System handles permission denial gracefully"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useNotifications.ts",
+          "operation": "create",
+          "description": "Create custom hook that requests browser notification permissions on first use. Implement periodic checking (every minute) for upcoming events with reminders enabled (within 15 minutes of event time). Show browser notifications using Notification API with event title and time. Track shown notifications to avoid duplicates. Handle permission denial gracefully with fallback UI indicators. Clean up intervals on unmount."
+        },
+        {
+          "path": "frontend/src/utils/notificationHelpers.ts",
+          "operation": "create",
+          "description": "Create utility functions for notification management: checkNotificationPermission() to verify permission status, requestNotificationPermission() to prompt user, showNotification() to display notification with event data, and calculateTimeUntilEvent() to determine if notification should be shown. Handle browser compatibility and permission states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement dark mode and light mode with theme persistence",
+      "acceptanceCriteria": [
+        "Toggle switch in Settings changes between dark and light mode",
+        "Theme preference persists across sessions",
+        "All components adapt to the selected theme",
+        "Text remains readable in both modes",
+        "Blue, white, and purple colors are used appropriately in both themes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/contexts/ThemeContext.tsx",
+          "operation": "create",
+          "description": "Create ThemeContext and ThemeProvider component managing dark/light mode state. Store theme preference in localStorage with key 'theme'. Apply theme by toggling 'dark' class on document root element (for Tailwind dark mode). Provide useTheme hook exposing current theme and toggleTheme function. Initialize theme from localStorage or system preference on mount."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind CSS for dark mode using class strategy (darkMode: 'class'). Define color palette with blue, white, and purple shades for both light and dark modes. Ensure proper contrast ratios for text readability in both themes. Add custom color variables if needed for theme-specific accent colors."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS custom properties for theme colors (light and dark variants) using :root and .dark selectors. Define background, text, primary, secondary, and accent colors with blue/white/purple palette. Ensure smooth color transitions when theme changes. Set up proper color contrast for accessibility in both modes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create bottom navigation bar with four tabs",
+      "acceptanceCriteria": [
+        "Bottom navigation is fixed at the bottom of the screen",
+        "All four tabs are present with icons and labels",
+        "Active tab is visually distinct",
+        "Tapping tabs navigates to the correct screen",
+        "Navigation is smooth and responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "create",
+          "description": "Create BottomNav component with four tabs: Home, Calendar, Add Event, and Settings. Each tab has an icon (use lucide-react or heroicons) and label. Render using fixed positioning at bottom of viewport. Highlight active tab based on current route using React Router's useLocation hook. Use Link components for navigation. Apply theme-aware styling with blue/purple accents. Ensure minimum 44x44px touch targets for mobile usability."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application with ThemeProvider. Set up React Router with routes for Home (/), Calendar (/calendar), AddEvent (/add-event), EventDetails (/events/:id), EventEdit (/events/:id/edit), and Settings (/settings). Include BottomNav component as fixed bottom element visible on all routes. Apply main content padding-bottom to prevent overlap with bottom navigation. Initialize useNotifications hook at app level."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create Settings screen with theme and notification preferences",
+      "acceptanceCriteria": [
+        "Settings screen is accessible from bottom navigation",
+        "Theme toggle is present and functional",
+        "Notification preferences can be managed",
+        "Cloud sync section is present but marked as coming soon",
+        "Layout is clean and organized"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Settings.tsx",
+          "operation": "create",
+          "description": "Create Settings page with sections for: theme toggle (dark/light mode switch using useTheme hook), notification preferences (enable/disable notifications toggle with permission status display), and cloud sync placeholder section (marked 'Coming Soon' with disabled state). Include app version information at bottom. Organize with clear section headers and spacing. Use theme-aware styling with blue/purple accents."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Apply smooth animations throughout the application",
+      "acceptanceCriteria": [
+        "Page transitions are smooth and visually appealing",
+        "Modals and dialogs animate in and out gracefully",
+        "Button interactions have visual feedback",
+        "Calendar view changes are animated smoothly",
+        "Animations perform well on mobile devices without lag"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PageTransition.tsx",
+          "operation": "create",
+          "description": "Create PageTransition wrapper component using React Router's location-based transitions. Apply fade or slide animations to page changes using Tailwind transition utilities or CSS animations. Ensure animations are performant (use transform and opacity properties). Keep duration under 300ms for snappy feel on mobile."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global animation utilities and keyframes for common transitions: fade-in, slide-up, scale animations for modals/dialogs. Define button hover/active states with transform scale and opacity transitions. Add calendar view change animations. Use hardware-accelerated CSS properties (transform, opacity) for mobile performance. Keep all animation durations between 150-300ms."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind config with custom animation and transition utilities. Add transition-timing-function presets for smooth easing (ease-in-out). Configure animation duration scales optimized for mobile performance. Define custom keyframes for specific animations (modal-in, slide-up, etc.)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Ensure mobile responsive design optimized for Android",
+      "acceptanceCriteria": [
+        "App layout adapts to different screen sizes",
+        "All interactive elements are easily tappable on mobile",
+        "Font sizes are readable on mobile devices",
+        "No horizontal scrolling is required",
+        "App functions correctly on Android browsers"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Set base font size to 16px minimum for mobile readability. Add mobile-first responsive typography scale. Set viewport height handling for mobile browsers (using dvh units where supported). Prevent text size adjustment on orientation change. Add touch-action CSS for better mobile scrolling behavior. Ensure no overflow-x on body/html elements."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure mobile-first breakpoints (default sm, md, lg, xl). Set minimum tap target sizes (44x44px) as custom spacing utilities. Define mobile-optimized spacing scale. Add safe-area-inset utilities for devices with notches. Configure font sizes optimized for mobile readability (minimum 14px for body text, 16px for inputs)."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add mobile-optimized meta tags: viewport meta with width=device-width and initial-scale=1.0, theme-color meta for Android browser chrome, apple-mobile-web-app-capable for iOS, mobile-web-app-capable for Android. Add touch-icon links for home screen installation. Reference generated app icon at frontend/public/assets/generated/app-icon.dim_512x512.png as favicon and touch icon."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Style application with minimal professional design",
+      "acceptanceCriteria": [
+        "Blue, white, and purple colors are used consistently",
+        "Design is minimal without unnecessary visual clutter",
+        "Typography is professional and readable",
+        "Spacing is consistent throughout the app",
+        "Overall aesthetic is modern and polished"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Define custom color palette with blue, white, and purple as primary colors. Set blue as primary action color (buttons, links), purple as secondary/accent color (highlights, badges), white as background for light mode. Add complementary grays for text and borders. Ensure colors work in both light and dark themes. Configure consistent spacing scale (4px base unit) and typography with professional font stack."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Apply global styles with minimal, clean aesthetic. Set consistent spacing and margins using Tailwind utilities or custom CSS. Define typography hierarchy with readable font sizes and line heights. Add subtle shadows and borders for depth without clutter. Remove default browser styles that conflict with minimal design. Integrate generated home-illustration.dim_800x600.png from frontend/public/assets/generated/ as background or decorative element on Home screen where appropriate."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component that wraps all pages and provides consistent structure: top header/title area, main content area with proper padding and max-width constraints, and space for bottom navigation. Apply theme-aware background colors. Use minimal design with clean lines and appropriate whitespace. Ensure layout works with BottomNav component."
+        }
+      ]
+    }
+  ]
+}
